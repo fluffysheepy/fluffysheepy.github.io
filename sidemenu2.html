@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Side menu</title>
+        <style>
+            body {
+                margin: 0px;
+            }
+            
+            .menu {
+                position: absolute;
+                display: block;
+                height: 100%;
+                background-color: indianred;
+                padding: 10px 0px 0px 40px;
+            }
+            
+            .menu-item {
+                display: none;
+                padding: 10px 30px 10px 30px;
+                position: relative;
+                text-align: center;
+        
+            }
+
+            .dropdown {
+                display: block;
+                background-color: indianred;
+                position: absolute;
+                top: 0px;
+                left: 100%;
+                display: none;
+            }
+
+            .dropdown-item {
+                padding:  10px 30px 10px 30px;
+                white-space: nowrap;
+               
+                
+            }
+            .menu-item:hover {
+                background-color: lemonchiffon;
+                
+            }
+            .menu-item:hover .dropdown {
+                display: block;
+            }
+            .menu:hover .menu-item {
+                display: block;
+            }
+            .menu:hover {
+                padding: 0px;
+            }
+
+            .dropdown-item:hover {
+                background-color: lemonchiffon;
+            }
+        </style>
+    </head>
+    <body>
+<div class="menu">
+    <div class="menu-item">
+        Menu 1
+        <div class="dropdown">
+            <div class="dropdown-item">The longest link</div>
+            <div class="dropdown-item">Link 2</div>
+            <div class="dropdown-item">Link 3</div>
+        </div>
+    </div>
+    <div class="menu-item">
+        Menu 2
+        <div class="dropdown">
+            <div class="dropdown-item">Click here!</div>
+            <div class="dropdown-item">Link 2</div>
+            <div class="dropdown-item">Link 3</div>
+        </div>
+    </div>
+    <div class="menu-item">
+        Menu 3
+        <div class="dropdown">
+            <div class="dropdown-item">Link 1</div>
+            <div class="dropdown-item">Link 2</div>
+            <div class="dropdown-item">Link 3</div>
+        </div>
+    </div>
+</div>
+    </body>
+</html>
