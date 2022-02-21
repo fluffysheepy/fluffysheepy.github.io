@@ -1,7 +1,7 @@
 def solve_quadratic(a,b,c):
    root=b**2-4*a*c
    if root<0:
-       return("None")
+       return None
    elif root==0:
        return(-b/2*a)
    else:
