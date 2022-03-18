@@ -1,9 +1,11 @@
 def is_prime(n):
-    if n==2 or n==3 or n==7:
+    if n==2:
         return(True)
-    elif n==1:
+    elif n<=1:
         return(False)
-    elif n%2!=0 and n%3!=0 and n%7!=0:
-        return(True)
-    else:
-        return(False)
+    a=2
+    while a<n:
+        if n%a==0:
+            return(False)
+        a=a+1
+    return(True)
