@@ -1,0 +1,68 @@
+<html>
+
+<head>
+    <style>
+        body {
+            background-color: #ece7a154;
+            background-image: url("https://img5.goodfon.com/wallpaper/nbig/3/21/tsvetochnyi-besshovnyi-fon-tsvety-vintazh-oboi.jpg");
+            color: rgb(88, 4, 15);
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+
+        h1 {
+            font-size: 48px;
+            font-style: italic;
+        }
+
+        p, a {
+            font-size: 24px;
+        }
+
+        a {
+            color: rgb(77, 30, 109);
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 100px auto;
+        }
+        
+        img {
+            margin: 10px 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>{{ title }}</h1>
+        
+        <img src="https://www.pngkit.com/png/full/96-967523_antique-brass-vintage-door-knob-png.png" height="180" align="left">
+        <p>{{ text }}</p>
+        
+        {% if choices %}
+	
+            <p><i>What do you do?</i></p>
+
+            <ul>
+                {% for (page_name, choice) in choices %}
+                <li>
+                    <a href="{{url_for(page_name)}}">{{choice}}</a>
+                </li>
+                {% endfor %}
+            </ul>
+
+        {% else %}
+            
+            <p>THE END.</p>
+
+
+            <p><a align="right" href="{{url_for('start')}}">Play again.</a></p>
+        {% endif %}
+
+
+    </div>
+</body>
+
+</html>
