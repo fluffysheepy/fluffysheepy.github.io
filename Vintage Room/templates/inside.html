@@ -1,0 +1,41 @@
+<html>
+
+<head>
+    <title>* Vintage Room: Inside *</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<style>
+    
+</style></head>
+
+<body>
+    <div class="container">
+        <img src="{{ url_for('static', filename='flowers.png') }}" height="400" align="left">
+        <h1>{{ title }}</h1>
+        
+        <p class="text">{{ text }}</p>
+        
+         {% if choices %}
+	
+            <p><i>What do you do?</i></p>
+
+            <ul>
+                {% for (page_name, choice) in choices %}
+                <li>
+                    <a href="{{url_for(page_name)}}">{{choice}}</a>
+                </li>
+                {% endfor %}
+            </ul>
+
+        {% else %}
+       
+            <p><b>THE END.</b></p>
+
+
+            <right><a href="{{url_for('start')}}">Play again.</a></right>
+        {% endif %}
+
+
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<html>
+
+<head>
+    <title>* Vintage Room: Window *</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>  
+        img {
+            margin: 5px 20px;
+        }
+
+        p.text {
+            padding-top: 30px;
+        }
+    </style></head>
+
+<body>
+    <div class="container">
+        <h1>{{ title }}</h1>
+        
+        <img src="{{ url_for('static', filename='window.png') }}" height="270" align="left">
+        <p class="text">{{ text }}</p>
+         {% if choices %}
+	
+            <p><i>What do you do?</i></p>
+
+            <ul>
+                {% for (page_name, choice) in choices %}
+                <li>
+                    <a href="{{url_for(page_name)}}">{{choice}}</a>
+                </li>
+                {% endfor %}
+            </ul>
+
+        {% else %}
+        <img src="{{ url_for('static', filename='smoke.png') }}" height="300" align="right">
+       
+            <p><b>THE END.</b></p>
+
+
+            <p><a align="right" href="{{url_for('start')}}">Play again.</a></p>
+        {% endif %}
+
+
+    </div>
+</body>
+
+</html>
