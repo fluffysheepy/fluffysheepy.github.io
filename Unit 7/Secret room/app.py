@@ -36,7 +36,7 @@ def room():
 def window():
     title = "You open the window!"
     
-    text = """That is a mistake. A white dense smoke enters the room, and you faint..."""
+    text = """That is a mistake. White dense smoke enters the room, and you faint..."""
 
     choices = []
 
