@@ -5,7 +5,6 @@ app = Flask(__name__)
 
 @app.route("/fizzbuzz/<int:count_to>")
 def fizzbuzz(count_to):
-    f = open('fizzbuzz.py')
     title = "FizzBuzz"
     text = """Challenge"""
     l=[]
