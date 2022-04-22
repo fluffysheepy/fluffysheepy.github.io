@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dictionary</title>
+</head>
+<body>
+  {% if not letter %}
+  <h1><i>Dictionary</i></h1>
+
+      Choose a letter:
+<ul>
+    {% for l in letters %}
+    <li>
+        <a href="{{ url_for ('letters', letter=l) }}">{{l}}</a>
+    </li>
+    {% endfor %}  
+</ul>
+
+
+    {% else %}
+    
+    <h1><i><a href="{{ url_for ('dictionary') }}">Dictionary</a></i></h1>
+ 
+        {% if is_word %}
+
+    {{letter}} is a real word!
+    <br> {{count}} words with prefix {{letter}}
+        {% else %}
+    {{letter}} is not a real word! :(     
+    <br> {{count}} words with prefix {{letter}}
+        {% endif %}
+
+    <ul>
+        {% for l in linklist %}
+        <li>
+            <a href="{{ url_for ('letters', letter=l) }}">{{l}}</a>
+        </li>
+        {% endfor %}  
+    </ul>
+    
+     {% endif %}
+
+
+</body>
+</html>
