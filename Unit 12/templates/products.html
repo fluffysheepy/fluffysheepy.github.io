@@ -8,29 +8,28 @@
     <title>Suppliers</title>
 </head>
 <body class="container">
-
-    <h1 class="">Suppliers</h1>
-  
-
+    {% for companyname in companynames %}
+    <h1 class="">{{companyname['CompanyName']}}</h1>
+    {% endfor %}
     <table class="table">
        <thead>
         <tr>
-            <th>Company Name</th>
-            <th>City</th>
-            <th>Country</th>
+            <th>Product Name</th>
+            <th>Quantity Per Unit</th>
+            <th>Unit Price</th>
         </tr>
        </thead>
        <tbody>
-            {% for supplier in suppliers %}
-           <tr>
-               <td><a href="{{url_for('products', supplier_id=supplier['Id'])}}">{{supplier['CompanyName']}}</a></td>
-               <td>{{supplier['City']}}</td>
-               <td>{{supplier['Country']}}</td>
-           </tr>
-            {% endfor %}
-       </tbody>
+        {% for product in products %}
+       <tr>
+           <td>{{product['ProductName']}}</td>
+           <td>{{product['QuantityPerUnit']}}</td>
+           <td>{{product['UnitPrice']}}</td>
+       </tr>
+        {% endfor %}
+   </tbody>
     </table>
-
+    <a href="{{url_for('suppliers')}}">Go Back</a>
 
 </body>
 </html>
