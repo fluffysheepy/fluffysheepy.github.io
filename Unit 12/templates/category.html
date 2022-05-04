@@ -8,23 +8,24 @@
     <title>Categories</title>
 </head>
 <body class="container">
-   
-    <h1 class="">Categories</h1>
-  
+    {% for categoryname in categorynames %}
+    <h1 class="">{{categoryname['CategoryName']}}</h1>
+    {% endfor %}
+    
     <table class="table">
        <thead>
         <tr>
-            <th>Food Category</th>
-            <th>Description</th>
-            <th>Number of Products</th>
+            <th>Product Name</th>
+            <th>Company Name</th>
         </tr>
        </thead>
        <tbody>
-        {% for category in categories %}
+        {% for category in category %}
        <tr>
-           <td><a href="{{url_for('category', category_id=category['FoodCategory'])}}">{{category['CategoryName']}}</a></td>
-           <td>{{category['Description']}}</td>
-           <td>{{category['ProductCount']}}</td>
+           <td>{{category['ProductName']}}</td>
+           
+           <td><a href="{{url_for('products', supplier_id=category['Supplier'])}}">{{category['CompanyName']}}</a></td>
+          
        </tr>
         {% endfor %}
    </tbody>

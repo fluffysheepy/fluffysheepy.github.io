@@ -33,7 +33,19 @@ def get_companyname(supplier_id):
 
 def get_categories():
     return query("""
-    SELECT COUNT(Product.CategoryId) AS ProductCount, CategoryName, Description FROM Category
+    SELECT COUNT(Product.CategoryId) AS ProductCount, Category.Id AS FoodCategory, CategoryName, Description FROM Category
     INNER JOIN Product
 	ON Product.CategoryId = Category.Id
     GROUP BY CategoryName""")
+
+def get_category(category_id):
+    return query("""
+    SELECT ProductName, Supplier.CompanyName, Supplier.Id AS Supplier, Category.CategoryName, Category.Id FROM Product
+    INNER JOIN Supplier
+    ON SupplierId = Supplier.Id
+    INNER JOIN Category
+    ON CategoryId = Category.Id WHERE CategoryId=?""", category_id)
+
+def get_categoryname(category_id):
+    return query("""
+    SELECT CategoryName FROM Category WHERE Id=?""", category_id)
